@@ -114,3 +114,4 @@ Thumbs.db
 # Uploads
 uploads/
 public/uploads/
+client/.env.local
