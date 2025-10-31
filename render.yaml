@@ -3,7 +3,6 @@ services:
     name: vastu-server
     env: node
     buildCommand: |
-      npm install
       cd server && npm install
       cd ../client && npm install && npm run build
     startCommand: cd server && node index.js
