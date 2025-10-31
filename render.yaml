@@ -3,11 +3,25 @@ services:
     name: vastu-server
     env: node
     buildCommand: |
+      # Install root dependencies
       npm install
-      cd server && npm install --production
+      
+      # Install server dependencies
+      cd server
+      npm install --production
       cd ..
-      cd client && npm install && npm run build
-    startCommand: cd server && node index.js
+      
+      # Build client
+      cd client
+      npm install
+      npm run build
+      cd ..
+      
+      # Create a server directory in the root and copy server files
+      mkdir -p /opt/render/project/server
+      cp -r server/* /opt/render/project/server/
+      
+    startCommand: cd /opt/render/project/server && node index.js
     envVars:
       - key: NODE_ENV
         value: production
