@@ -2,8 +2,12 @@ services:
   - type: web
     name: vastu-server
     env: node
-    buildCommand: npm install && cd server && npm install && cd ../client && npm install && npm run build
-    startCommand: node server/index.js
+    buildCommand: |
+      npm install
+      cd server && npm install --production
+      cd ..
+      cd client && npm install && npm run build
+    startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production
