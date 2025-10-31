@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: vastu-server
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: vastu-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+    plan: free
+    region: oregon
+    autoDeploy: true
