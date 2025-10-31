@@ -7,7 +7,7 @@ services:
       cd server && npm install --production
       cd ..
       cd client && npm install && npm run build
-    startCommand: cd server && npm start
+    startCommand: cd server && node index.js
     envVars:
       - key: NODE_ENV
         value: production
