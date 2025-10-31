@@ -18,6 +18,7 @@ interface GalleryItem {
     _id: string;
     image: string;
     caption: string;
+    category?: string;
     createdAt: string;
 }
 
